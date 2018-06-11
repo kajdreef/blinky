@@ -27,9 +27,29 @@
     <artifactId>maven-compiler-plugin</artifactId>
     <version>3.1</version>
     <configuration>
-     <source>1.7</source>
-     <target>1.7</target>
+     <source>1.8</source>
+     <target>1.8</target>
     </configuration>
+   </plugin>
+   <plugin>
+     <groupId>org.pitest</groupId>
+     <artifactId>pitest-maven</artifactId>
+     <version>1.4.0</version>
+     <configuration>
+       <!-- options required for report aggregation -->
+       <exportLineCoverage>true</exportLineCoverage>
+       <outputFormats><value>XML</value><value>HTML</value></outputFormats>
+       <timestampedReports>false</timestampedReports>
+
+     </configuration>
+     <executions>
+       <execution>
+         <id>run-mutation-tests</id>
+         <goals>
+           <goal>mutationCoverage</goal>
+         </goals>
+       </execution>
+     </executions>
    </plugin>
   </plugins>
  </build>

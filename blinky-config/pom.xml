@@ -45,6 +45,24 @@
       <resource><directory>src/test/resources</directory></resource>
     </resources>
     <plugins>
+        <plugin>
+        <groupId>org.pitest</groupId>
+        <artifactId>pitest-maven</artifactId>
+        <version>1.4.0</version>
+        <configuration>
+          <exportLineCoverage>true</exportLineCoverage>
+          <outputFormats><value>XML</value><value>HTML</value></outputFormats>
+          <timestampedReports>false</timestampedReports>
+        </configuration>
+        <executions>
+          <execution>
+            <id>run-mutation-tests</id>
+            <goals>
+              <goal>mutationCoverage</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
        <artifactId>maven-assembly-plugin</artifactId>
        <configuration>
